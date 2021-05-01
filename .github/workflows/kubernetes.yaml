@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: linux-runner
+  namespace: gitaction
   labels:
     app: linux-runner
 spec:
@@ -15,8 +16,8 @@ spec:
         app: linux-runner
     spec:
       containers:
-      - name: linux-runner
-        image: aimvector/github-runner:latest
+      - name: runner
+        image: runner:latest
         env:
         - name: GITHUB_OWNER
           value: avidunken
